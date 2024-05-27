@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { Container, VStack, Heading, Box, Text, Flex } from "@chakra-ui/react";
+import { Container, VStack, Heading, Box, Text, Flex, useColorModeValue } from "@chakra-ui/react";
 
 const Leaderboard = () => {
   const [leaders, setLeaders] = useState([]);
+
+  const bg = useColorModeValue("gray.50", "gray.700");
+  const textColor = useColorModeValue("gray.700", "gray.50");
 
   useEffect(() => {
     // Fetch leaderboard data from the server
@@ -31,9 +34,9 @@ const Leaderboard = () => {
           Leaderboard
         </Heading>
         {leaders.map((leader, index) => (
-          <Box key={leader.id} w="100%" p={4} borderWidth={1} borderRadius="md" bg="gray.50" boxShadow="md">
+          <Box key={leader.id} w="100%" p={4} borderWidth={1} borderRadius="md" bg={bg} boxShadow="md">
             <Flex justify="space-between" align="center">
-              <Text fontSize="lg" fontWeight="bold" color="gray.700">
+              <Text fontSize="lg" fontWeight="bold" color={textColor}>
                 {index + 1}. {leader.name}
               </Text>
               <Text fontSize="lg" fontWeight="bold" color="teal.500">
