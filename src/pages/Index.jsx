@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Container, VStack, Heading, Select, Button, Box, Text, Flex } from "@chakra-ui/react";
+import { Container, VStack, Heading, Button, Box, Text, Flex } from "@chakra-ui/react";
 
 const games = [
-  { id: 1, teams: ["Team A", "Team B"] },
-  { id: 2, teams: ["Team C", "Team D"] },
-  { id: 3, teams: ["Team E", "Team F"] },
+  { id: 1, teams: ["Team A", "Team B"], date: "2023-09-10", location: "Stadium A" },
+  { id: 2, teams: ["Team C", "Team D"], date: "2023-09-11", location: "Stadium B" },
+  { id: 3, teams: ["Team E", "Team F"], date: "2023-09-12", location: "Stadium C" },
   // Add more games as needed
 ];
 
@@ -46,24 +46,24 @@ const Index = () => {
         </Heading>
         {games.map((game) => (
           <Box key={game.id} w="100%" p={4} borderWidth={1} borderRadius="md" bg="gray.50" boxShadow="md">
-            <Flex justify="space-between" align="center">
+            <Flex justify="space-between" align="center" mb={4}>
               <Text fontSize="lg" fontWeight="bold" color="gray.700">
                 {game.teams[0]} vs {game.teams[1]}
               </Text>
-              <Select
-                placeholder="Select winner"
-                value={selections[game.id] || ""}
-                onChange={(e) => handleSelectionChange(game.id, e.target.value)}
-                bg="white"
-                borderColor="teal.500"
-                _hover={{ borderColor: "teal.600" }}
-              >
-                {game.teams.map((team) => (
-                  <option key={team} value={team}>
-                    {team}
-                  </option>
-                ))}
-              </Select>
+              <Text fontSize="md" color="gray.500">
+                {game.date} - {game.location}
+              </Text>
+            </Flex>
+            <Flex justify="space-around">
+              {game.teams.map((team) => (
+                <Button
+                  key={team}
+                  colorScheme={selections[game.id] === team ? "teal" : "gray"}
+                  onClick={() => handleSelectionChange(game.id, team)}
+                >
+                  {team}
+                </Button>
+              ))}
             </Flex>
           </Box>
         ))}
