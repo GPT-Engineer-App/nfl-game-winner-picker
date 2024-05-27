@@ -45,8 +45,8 @@ const Index = () => {
           NFL Game Predictor
         </Heading>
         {games.map((game) => (
-          <Box key={game.id} w="100%" p={4} borderWidth={1} borderRadius="md" bg="gray.50" boxShadow="md">
-            <Flex justify="space-between" align="center" mb={4}>
+          <Box key={game.id} w="100%" p={2} borderWidth={1} borderRadius="md" bg="gray.50" boxShadow="md">
+            <Flex justify="space-between" align="center" mb={2}>
               <Text fontSize="lg" fontWeight="bold" color="gray.700">
                 {game.teams[0]} vs {game.teams[1]}
               </Text>
@@ -54,16 +54,28 @@ const Index = () => {
                 {game.date} - {game.location}
               </Text>
             </Flex>
-            <Flex justify="space-around">
-              {game.teams.map((team) => (
-                <Button
-                  key={team}
-                  colorScheme={selections[game.id] === team ? "teal" : "gray"}
-                  onClick={() => handleSelectionChange(game.id, team)}
-                >
-                  {team}
-                </Button>
-              ))}
+            <Flex justify="space-around" align="center">
+              <Button
+                key={game.teams[0]}
+                colorScheme={selections[game.id] === game.teams[0] ? "teal" : "gray"}
+                onClick={() => handleSelectionChange(game.id, game.teams[0])}
+                size="sm"
+                mx={1}
+              >
+                {game.teams[0]}
+              </Button>
+              <Text fontSize="lg" fontWeight="bold" color="gray.700">
+                @
+              </Text>
+              <Button
+                key={game.teams[1]}
+                colorScheme={selections[game.id] === game.teams[1] ? "teal" : "gray"}
+                onClick={() => handleSelectionChange(game.id, game.teams[1])}
+                size="sm"
+                mx={1}
+              >
+                {game.teams[1]}
+              </Button>
             </Flex>
           </Box>
         ))}
