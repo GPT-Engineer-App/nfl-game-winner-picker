@@ -9,6 +9,14 @@ const colors = {
     800: "#153e75",
     700: "#2a69ac",
   },
+  teal: {
+    500: "#319795",
+    600: "#2c7a7b",
+  },
+  gray: {
+    50: "#f7fafc",
+    700: "#2d3748",
+  },
 };
 
 const theme = extendTheme({ colors });
