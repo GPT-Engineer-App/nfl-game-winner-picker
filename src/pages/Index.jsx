@@ -41,11 +41,11 @@ const Index = () => {
   return (
     <Container maxW="container.lg" py={8}>
       <VStack spacing={8}>
-        <Heading as="h1" size="2xl" textAlign="center" fontFamily="sans-serif" color="teal.500">
+        <Heading as="h1" size="2xl" textAlign="center" fontFamily="sans-serif" color="teal.500" fontWeight="bold">
           NFL Game Predictor
         </Heading>
         {games.map((game) => (
-          <Box key={game.id} w="100%" p={2} borderWidth={1} borderRadius="md" bg="gray.50" boxShadow="md">
+          <Box key={game.id} w="100%" p={4} borderWidth={1} borderRadius="md" bg="white" boxShadow="md">
             <Flex justify="space-between" align="center" mb={2}>
               <Text fontSize="lg" fontWeight="bold" color="gray.700">
                 {game.teams[0]} vs {game.teams[1]}
@@ -59,7 +59,8 @@ const Index = () => {
                 key={game.teams[0]}
                 colorScheme={selections[game.id] === game.teams[0] ? "teal" : "gray"}
                 onClick={() => handleSelectionChange(game.id, game.teams[0])}
-                size="sm"
+                size="md"
+                fontWeight="bold"
                 mx={1}
               >
                 {game.teams[0]}
@@ -71,7 +72,8 @@ const Index = () => {
                 key={game.teams[1]}
                 colorScheme={selections[game.id] === game.teams[1] ? "teal" : "gray"}
                 onClick={() => handleSelectionChange(game.id, game.teams[1])}
-                size="sm"
+                size="md"
+                fontWeight="bold"
                 mx={1}
               >
                 {game.teams[1]}

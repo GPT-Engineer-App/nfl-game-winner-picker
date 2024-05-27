@@ -27,11 +27,11 @@ const Leaderboard = () => {
   return (
     <Container maxW="container.lg" py={8}>
       <VStack spacing={8}>
-        <Heading as="h1" size="2xl" textAlign="center" fontFamily="sans-serif" color="teal.500">
+        <Heading as="h1" size="2xl" textAlign="center" fontFamily="sans-serif" color="teal.500" fontWeight="bold">
           Leaderboard
         </Heading>
         {leaders.map((leader, index) => (
-          <Box key={leader.id} w="100%" p={4} borderWidth={1} borderRadius="md" bg="gray.50" boxShadow="md">
+          <Box key={leader.id} w="100%" p={4} borderWidth={1} borderRadius="md" bg="white" boxShadow="md">
             <Flex justify="space-between" align="center">
               <Text fontSize="lg" fontWeight="bold" color="gray.700">
                 {index + 1}. {leader.name}
