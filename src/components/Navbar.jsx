@@ -3,16 +3,16 @@ import { Link as RouterLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <Box bgGradient="linear(to-r, blue.500, teal.500)" px={4} py={2} mb={8}>
+    <Box bgGradient="linear(to-r, teal.500, blue.500)" px={4} py={2} mb={8}>
       <Flex align="center" justify="space-between">
-        <Heading as="h1" size="lg" color="white" fontFamily="sans-serif">
+        <Heading as="h1" size="lg" color="white" fontFamily="sans-serif" fontWeight="bold">
           NFL Game Predictor
         </Heading>
         <Flex>
-          <Link as={RouterLink} to="/" color="white" mx={2} fontWeight="bold">
+          <Link as={RouterLink} to="/" color="white" mx={2} fontWeight="bold" fontSize="lg">
             Home
           </Link>
-          <Link as={RouterLink} to="/leaderboard" color="white" mx={2} fontWeight="bold">
+          <Link as={RouterLink} to="/leaderboard" color="white" mx={2} fontWeight="bold" fontSize="lg">
             Leaderboard
           </Link>
         </Flex>

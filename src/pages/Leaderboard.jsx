@@ -27,7 +27,7 @@ const Leaderboard = () => {
   return (
     <Container maxW="container.lg" py={8}>
       <VStack spacing={8}>
-        <Heading as="h1" size="2xl" textAlign="center" fontFamily="sans-serif" color="teal.500">
+        <Heading as="h1" size="2xl" textAlign="center" fontFamily="sans-serif" color="teal.600" fontWeight="bold">
           Leaderboard
         </Heading>
         {leaders.map((leader, index) => (
@@ -36,7 +36,7 @@ const Leaderboard = () => {
               <Text fontSize="lg" fontWeight="bold" color="gray.700">
                 {index + 1}. {leader.name}
               </Text>
-              <Text fontSize="lg" fontWeight="bold" color="teal.500">
+              <Text fontSize="lg" fontWeight="bold" color="teal.600">
                 {leader.points} points
               </Text>
             </Flex>
