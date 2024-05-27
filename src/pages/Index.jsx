@@ -23,6 +23,21 @@ const Index = () => {
     // Add logic to save selections
   };
 
+  const handleRandomSelection = () => {
+    const newSelections = { ...selections };
+    games.forEach((game) => {
+      if (!newSelections[game.id]) {
+        const randomTeam = game.teams[Math.floor(Math.random() * game.teams.length)];
+        newSelections[game.id] = randomTeam;
+      }
+    });
+    setSelections(newSelections);
+  };
+
+  const handleClearSelections = () => {
+    setSelections({});
+  };
+
   return (
     <Container maxW="container.lg" py={8}>
       <VStack spacing={8}>
@@ -37,6 +52,7 @@ const Index = () => {
               </Text>
               <Select
                 placeholder="Select winner"
+                value={selections[game.id] || ""}
                 onChange={(e) => handleSelectionChange(game.id, e.target.value)}
               >
                 {game.teams.map((team) => (
@@ -50,6 +66,12 @@ const Index = () => {
         ))}
         <Button colorScheme="blue" onClick={handleSubmit}>
           Submit Selections
+        </Button>
+        <Button colorScheme="green" onClick={handleRandomSelection}>
+          Randomly Select Winners
+        </Button>
+        <Button colorScheme="red" onClick={handleClearSelections}>
+          Clear Selections
         </Button>
       </VStack>
     </Container>
